@@ -20,6 +20,11 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
+// Health Check Endpoint
+app.get('/', (req, res) => {
+    res.send('Video Generator Service is running');
+});
+
 if (!supabaseUrl || !supabaseKey) {
     console.error('Missing Supabase environment variables');
     process.exit(1);
