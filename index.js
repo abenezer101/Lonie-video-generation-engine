@@ -262,7 +262,10 @@ app.post('/generate-video', async (req, res) => {
 
             // Use Render's public URL as fallback, otherwise localhost
             const publicHost = process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`;
+            console.log(`🌐 [${videoId}] Configured Public Host: ${publicHost}`);
+
             let videoUrl = `${publicHost}/videos/${videoId}.mp4`;
+            console.log(`📡 [${videoId}] Initial Video URL Assumption: ${videoUrl}`);
 
             try {
                 // Determine file size for better upload handling if needed, 
